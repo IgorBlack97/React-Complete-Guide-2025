@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+main{
+    display: flex;
+}
+.sidebar{
+    border: 1px solid red;
+    width: 300px;
+    height: 100vh;
+    background: #1c1918;
+    color: white;
+    padding: 10px;
+}
+
