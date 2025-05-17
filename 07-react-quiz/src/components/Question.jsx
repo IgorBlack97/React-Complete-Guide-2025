@@ -10,6 +10,20 @@ export default function Question({ onSkip, onSelect, questionKey }) {
   });
 
   const activeQuestion = questions[questionKey];
+  const isQuestionAnswered = answer.selectedAnswer !== "";
+
+  let mode = "";
+  let progressBarTimeOut = 30000;
+  let progressBarMode = null;
+
+  if (isQuestionAnswered && answer.isCorrect != null) {
+    mode = answer.isCorrect ? "correct" : "wrong";
+    progressBarTimeOut = 2000;
+  } else if (isQuestionAnswered) {
+    mode = "selected";
+    progressBarTimeOut = 1000;
+    progressBarMode = "answered";
+  }
 
   function answerSelectHandler(answer) {
     setAnswer({
@@ -31,11 +45,16 @@ export default function Question({ onSkip, onSelect, questionKey }) {
 
   return (
     <div id="question">
-      <ProgressBar timeout={5000} onTimeout={onSkip} />
+      <ProgressBar
+        timeout={progressBarTimeOut}
+        key={progressBarTimeOut}
+        onTimeout={!isQuestionAnswered ? onSkip : null}
+        mode={progressBarMode}
+      />
       <h2>{activeQuestion.text}</h2>
       <Answers
         activeKey={questionKey}
-        isCorrect={answer.isCorrect}
+        mode={mode}
         onSelect={answerSelectHandler}
         selectedAnswer={answer.selectedAnswer}
       />

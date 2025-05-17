@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function ProgressBar({ timeout, onTimeout, isAnswered }) {
+export default function ProgressBar({ timeout, onTimeout, mode }) {
   const [value, setValue] = useState(timeout);
 
   useEffect(() => {
@@ -22,11 +22,6 @@ export default function ProgressBar({ timeout, onTimeout, isAnswered }) {
   }, [onTimeout, timeout]);
 
   return (
-    <progress
-      id="question-time"
-      max={timeout}
-      value={value}
-      className={isAnswered ? "answered" : null}
-    />
+    <progress id="question-time" max={timeout} value={value} className={mode} />
   );
 }

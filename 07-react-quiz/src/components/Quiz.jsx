@@ -1,10 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import questions from "../../questions";
-import Answer from "./Answer";
-import summaryImg from "../assets/quiz-complete.png";
-import ProgressBar from "./ProgressBar";
-import Answers from "./Answers";
 import Question from "./Question";
+import Summary from "./Summary";
 
 export default function Quiz() {
   const [answers, setAnswers] = useState([]);
@@ -23,12 +20,7 @@ export default function Quiz() {
   });
 
   if (activeQuestionKey === questions.length) {
-    return (
-      <div id="summary">
-        <img src={summaryImg} alt="Complete Icon" />
-        <h2>Quiz Completed!</h2>
-      </div>
-    );
+    return <Summary answers={answers} />;
   }
 
   return (
