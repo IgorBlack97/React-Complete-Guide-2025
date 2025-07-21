@@ -1,7 +1,0 @@
-{
-  "/meals/page": "app/meals/page.js",
-  "/meals/share/page": "app/meals/share/page.js",
-  "/community/page": "app/community/page.js",
-  "/page": "app/page.js",
-  "/meals/[mealID]/page": "app/meals/[mealID]/page.js"
-}
