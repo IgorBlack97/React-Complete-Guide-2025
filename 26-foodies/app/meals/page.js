@@ -4,6 +4,11 @@ import { getMeals } from "@/lib/meals";
 import MealsGrid from "@/components/meals/meals-grid";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Meals page",
+  description: "Delicious meals, shared by a food-loving community.",
+};
+
 function MealsLoading() {
   return <p className={styles.loading}>Fetching meals...</p>;
 }

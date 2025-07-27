@@ -17,7 +17,6 @@ export default function Meals() {
       }
 
       const meals = await res.json();
-      console.log(meals);
       setLoadedMeals(meals);
     }
 
